@@ -1,0 +1,62 @@
+\chapter{Network-based algorithms for biological applications}
+\label{ch:applications}
+
+The representation and organization of biological data in a network form can not only be far more intuitive for visual understanding, it can also facilitate the use of network-based methods for applications in computational network biology. In this chapter, we present network-based algorithms which leverage the relationships encoded within biological networks for various biomedical applications, such as drug discovery and gene function prediction.
+
+\section {MultiPaths: a Python framework for analyzing multi-layer biological networks using diffusion algorithms}
+
+\label{ch:multipaths}
+
+This section presents the following publication \textbf{(see Appendix \ref{ap:multipaths})}:
+
+\begin{itemize}
+
+\item[] Josep Marín Llaó, Sarah Mubeen, Alexandre Perera Lluna, Martin Hofmann Apitius, Sergio Picart Armada, and Daniel Domingo Fernández. (2021). MultiPaths: a Python framework for analyzing multi-layer biological networks using diffusion algorithms. \textit{Bioinformatics}, 37(1): 137-139.
+
+\end{itemize}
+
+\section*{Summary}
+
+Biological networks, such as pathways and biomedical knowledge graphs, serve as powerful paradigms to integrate and explain \textit{omics} data. This is especially the case when these graphs are operationalized for algorithmic utility for various applications in biomedicine, leveraging algorithms used in domains as diverse as social networks, communication networks and networks of neural connections within the brain, amongst others. One particular algorithm, label propagation or network diffusion, is especially distinguished by its capacity to account for global network structure, finding uses in various biological applications, as described earlier in Section \ref{algorithmic_usage}. 
+
+This algorithm relies upon the principle that genes within close proximity in a network tend to share common characteristics, such as their involvement in a particular biological process \parencite{cowen2017}. Under this assumption, network diffusion uses biological networks as powerful yet simplistic computational models for abstracting molecular interactions and associations. When the nodes of the network are superimposed with some prior knowledge or abstract label, a diffusion algorithm can diffuse or propagate a signal to neighbouring nodes, which can be inferred if they are unlabelled. Though numerous algorithms for diffusion exist, software to enable researchers to implement these algorithms are limited by the number of diffusion algorithms and biological databases they provide. In order to address these limitations, we have developed a framework to conduct network diffusion on biological networks.  
+ 
+The publication, \textit{MultiPaths: a Python framework for analyzing multi-layer biological networks using diffusion algorithms}, presents MultiPaths, an ecosystem consisting of two Python packages for the analysis of biological networks. The first of the two packages, DiffuPy, implements several diffusion algorithms which are applicable to any generic network. Scoring schemes for propagating a label vector on a network are determined by a graph kernel which defines how the propagation behaves and spreads, how the input labels are codified and possible subsequent statistical normalization. The selection of one kernel or the use of one codification schema over another can lead to differences in results. Thus, DiffuPy provides a collection of five graph kernels, including the regularized Laplacian kernel, a matrix representation of a graph commonly used for diffusion \parencite{cowen2017}. Additionally, different diffusion methods can differ in how they codify positive (e.g., up-regulated entity), negative (e.g., down-regulated entity) and unlabelled (e.g., unmeasured entity) entities.
+
+The second package offered by MultiPaths, DiffuPath, connects these algorithms to several multi-modal biological networks, thus, facilitating their utility in the scientific community. Specifically, the generic label propagation algorithms from DiffuPy can be applied to several biological networks we have made available in DiffuPath. These include biological networks encoded in various formats, including Simple Interaction Format (SIF) and Biological Expression Language (BEL) \parencite{slater2012}. We provide three pathway databases (i.e., (KEGG \parencite{kanehisa2000}, Reactome \parencite{jassal2020} and WikiPathways \parencite{martens2021}) as well biological networks from several additional databases. These include disease-disease associations \parencite{menche2015}, DrugBank \parencite{wishart2018} for drug-target interactions, HSDN \parencite{zhou2014} for associations between diseases and symptoms, miRTarBase \parencite{huang2020} for Interactions between miRNA and their targets, SIDER \parencite{kuhn2016} for associations between drugs and side effects and Gene Ontology \parencite{ashburner2000} for a hierarchy of tens of thousands of biological processes. Moreover, we created predefined collections so users can download pre-calculated kernels for sets of networks that represent integrated biological databases. These include an integrated representation of the three pathway databases, encompassing \textit{-omics} modalities and biological processes/pathways \parencite{domingo2019}, the merged representation and DrugBank \parencite{wishart2018}, encompassing \textit{-omics} modalities and biological processes/pathways with a strong focus on drug/chemical interactions and the merged representation and MirTarBase \parencite{huang2020}, encompassing \textit{-omics} modalities and biological processes/ pathways enriched with miRNAs.
+
+Finally, this work has outlined several case scenarios conducted on multiple pathway networks, including the merged network representation, using multi-omics datasets. Specifically, we found that the merged multimodal network resulted in greater coverage of entities when compared to a network from any single resource, leading to improved performance metrics for diffusion algorithms in correctly identifying genes, metabolites and miRNAs. The results of these case scenarios highlight the following: i) the capacity of networks to accommodate heterogeneous data modalities, and ii) larger and more comprehensive networks generated from the combination of multiple resources yield better results compared with networks derived from individual ones.
+
+\subsubsection{Authors' contributions}
+
+Josep Marín Llaó implemented the methodology with assistance from Daniel Domingo Fernández and Sarah Mubeen. Sarah Mubeen created the networks and network collections. Daniel Domingo Fernández, Josep Marín Llaó, Sergio Picart Armada and Sarah Mubeen performed the formal analyses. Sarah Mubeen, Daniel Domingo Fernández, Sergio Picart Armada and Josep Marín Llaó wrote the manuscript. Daniel Domingo Fernández conceived, designed and supervised the study. 
+
+
+\section{Drug2ways: reasoning over causal paths in biological networks for drug discovery}
+
+\label{ch:drug2ways}
+
+This section presents the following publication \textbf{(see Appendix \ref{ap:drug2ways})}:
+
+\begin{itemize}
+
+\item[] Daniel Rivas Barragan, \textbf{Sarah Mubeen}, Francesc Guim Bernat, Martin Hofmann Apitius, and Daniel Domingo Fernández (2020). Drug2ways: Reasoning over causal paths in biological networks for drug discovery. \textit{PLOS Computational Biology}, 16(12): e1008464.
+
+\end{itemize}
+
+\section*{Summary}
+
+In the previous section, we introduced a class of algorithms which simulate the flow or diffusion of information through a partially labelled network to make inferences on unlabelled nodes for numerous applications, such as protein function prediction and drug target characterization. Diffusion algorithms heavily rely on the premise of network proximity, taking into account direct as well as distant neighbours. These algorithms are particularly powerful as they consider all possible paths between nodes within a network. Given the efficacy of this approach, in this section, we explored the prospect of leveraging the ensemble of paths between nodes for the especially challenging task of drug discovery, where both the high cost and attrition rate of the traditional approach to drug development impede the approval of novel as well as existing drugs for indications.
+
+Oftentimes, given the small-world property of most biological networks and the computational complexity associated with exploring distant paths, pathfinding approaches in network-based drug discovery tend to be limited to calculating cost-effective paths, such as shortest paths, between a drug and disease or disease phenotype. As outlined in Section \ref{algorithmic_usage}, recent approaches in biomedicine have tended to focus on these shortest paths within a network, or drug discovery within discrete neighbourhoods of disease module sub-graphs \parencite{cheng2019}. However, therapeutic targets of a drug may not necessarily be located exclusively within close proximity to nodes which are relevant to a disease concept (e.g., disease-relevant gene). Rather, the ensemble of paths between a drug target and disease-relevant node may determine whether a drug could potentially be therapeutic for a disease.
+
+In the publication \textit{Drug2ways: Reasoning over causal paths in biological networks for drug discovery}, we introduce drug2ways, which, to our knowledge, is the first algorithm to traverse through all possible paths between pairs of nodes within a network for applications in drug discovery and drug repurposing. 
+
+Leveraging multi-modal causal networks, the drug2ways algorithm traverses along all causal paths between drug and disease nodes below a maximum length. A maximum length constraint was applied on the paths as exceedingly long paths and cycles can make the problem of calculating all paths intractable. We next defined the cumulative effect of a given drug on a disease-relevant node as the product of the effect of each individual intermediate node. The effect could be +1 or -1 depending on whether an entity activated or inhibited its neighbouring entity along the directed, causal path. Finally, drug-disease pairs whose ensemble of paths resulted in the reversal of the disease phenotype are then proposed as potential candidates. For instance, if the cumulative effect of a drug on a disease-relevant node was that of inhibition as a greater proportion of paths between the nodes below a given length were inhibitory, then the drug would be proposed by the algorithm as as potential therapeutic candidate for the disease and promising for further investigation. 
+
+To demonstrate drug2ways, we applied the algorithm on two distinct causal networks containing directed relationships between drugs, proteins, diseases and phenotypes. By obtaining a list of drug-disease pairs in clinical trials and mapping these to pairs within the two networks, we sought to validate our approach by testing drug2ways' ability to recover drug-disease pairs investigated in clinical trials among the top-ranked pairs proposed by the algorithm. The drug-disease pairs prioritized by drug2ways contained a large proportion of clinically investigated pairs and significantly outperformed both baseline and permuted networks, demonstrating the utility of the algorithm for applications in drug discovery and repurposing. Moreover, we presented case scenarios in which the algorithm was also used to propose drug candidates that could simultaneously be used to optimize multiple targets (i.e., one drug with several disease and/or phenotypic targets), as well as drug candidates that could be used together in combination therapies. Finally, drug2ways is efficiently implemented in Python and freely available to the scientific community as a software package.
+
+\subsubsection{Authors' contributions}
+
+Daniel Rivas Barragan and Daniel Domingo Fernández implemented the methodology. Sarah Mubeen and Daniel Domingo Fernández generated the knowledge graphs for validation. Sarah Mubeen, Daniel Domingo Fernández, and Daniel Rivas Barragan performed the formal analyses. Sarah Mubeen, Daniel Domingo Fernández and Daniel Rivas Barragan wrote the manuscript. Daniel Domingo Fernández conceived, designed and supervised the study.
+

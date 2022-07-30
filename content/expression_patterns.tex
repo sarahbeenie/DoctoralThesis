@@ -1,0 +1,67 @@
+\chapter{Revealing context-specific expression patterns through integrated biological networks}
+\label{ch:contexts}
+
+In this chapter, we present two publications which collectively investigate the expression patterns of genes across several contexts and conditions by leveraging various types of biological networks.
+
+
+\section{Towards a global investigation of transcriptomic signatures through co-expression networks and pathway knowledge for the identification of disease mechanisms}
+
+\label{ch:coxpath}
+
+This section presents the following publication \textbf{(see Appendix \ref{ap:coxpath})}:
+
+\begin{itemize}
+
+\item[] Rebeca Queiroz Figueiredo, Tamara Raschka, Alpha Tom Kodamullil, Martin Hofmann Apitius, \textbf{Sarah Mubeen}\textsuperscript{\textdagger} and Daniel Domingo Fernández\textsuperscript{\textdagger} (2021). Towards a global investigation of transcriptomic signatures through co-expression networks and pathway knowledge for the identification of disease mechanisms. \textit{Nucleic acid research}, 49(14): 7939–7953.
+
+\end{itemize}
+\textsuperscript{\textdagger} Joint last authors
+
+\section*{Summary}
+
+In this section and the one that follows, we introduce a specific class of biological networks in which nodes are connected depending on the strength of their correlations. These networks, termed gene co-expression networks, are often used for the analysis of experimental datasets as they allow for the simultaneous analysis of thousands of genes and facilitate the deciphering of gene expression patterns across multiple conditions. 
+
+In the publication, \textit{Towards a global investigation of transcriptomic signatures through co-expression networks and pathway knowledge for the identification of disease mechanisms}, we identified nearly 4,500 disease-specific transcriptomic datasets from ArrayExpress which were filtered to retain datasets for patient-level data as well as control samples. Datasets which investigated the same or similar disease were grouped together under a common label. This resulted in the categorization of 38,621 samples from 469 datasets to 63 distinct diseases and one control group. Following batch correction to remove dataset specific effects and mapping of probes to genes, for patients samples for datasets categorized into each of the 63 diseases and their control samples, the transcriptomic data was then used to construct co-expression networks which represented the strongest gene-gene correlations in each of the different diseases and the normal group. These networks could be broadly grouped into ten distinct disease categories, including diseases of the cardiovascular, immune, gastrointestinal, respiratory, reproductive, nervous and musculoskeletal systems, as well as cancers, cognitive disorders, infectious diseases and others. Concurrently, we generated a human protein-protein interactome network containing nearly 200,000 interactions between approximately 8,600 protein-coding genes. Protein-protein interactions (PPIs) in this network were gathered from several resources, including multiple pathway databases. 
+
+The systematic nature of this work allowed us to investigate global expression patterns in hundreds of experimental datasets in a joint, knowledge- and data- driven manner. By constructing disease-specific co-expression networks from transcriptomic datasets and using a PPI network as a template, we were able to contextualize co-expression patterns that emerged across conditions. We conducted three different analyses of the co-expression networks, specifically at the node, edge and pathway levels, each of which was complemented by a parallel investigation of a PPI network. Firstly, we identified unique and common proteins across diseases in a node-level analysis and evaluated their consistency against nodes from the PPI network as a proxy for their coverage in the scientific literature. In addition, we performed two subsequent analyses assuming that when a given pathway is relevant to a disease, the genes in the pathway will also tend to be strongly correlated in the disease-specific co-expression networks. Secondly, in an edge-level analysis, we studied the presence of common disease-specific correlations within the PPI network. Thirdly, in a pathway-level analysis, we explored the consensus and/or disagreements between connections in the disease specific co-expression networks and known PPIs in biological pathways. 
+
+Finally, having identified disease networks with a high similarity to specific pathways, we conducted a case study where we focused on a particular disease (i.e., schizophrenia) and an associated pathway (long-term potentiation (LTP)). We superimposed the co-expression network for schizophrenia with the LTP pathway, finding several edges in common. We also found that the vast majority of proteins in the LTP pathway were correlated in the co-expression network, illustrating that correlated proteins did tend towards involvement in the same biological process.
+
+In conclusion, through this work, we demonstrate that when gene co-expression networks are superimposed with a protein protein interaction (PPI) network and pathway knowledge, one can connect the transcriptome with the proteome and contextualize gene co-expression patterns with prior, literature-based knowledge. Using a combined knowledge- and data- driven approach, we show how insights can be gained on common and unique mechanisms that underlie disease pathophysiology. 
+
+\subsubsection{Authors' contributions}
+
+Daniel Domingo Fernández and Sarah Mubeen designed and supervised the study. Tamara Raschka implemented the pipeline to download, process and categorize the gene expression datasets. Rebeca Queiroz Figueiredo and Tamara Raschka generated the co-expression networks for each group. Sarah Mubeen and Daniel Domingo Fernández generated the interactome network. Rebeca Queiroz Figueiredo performed the analyses. Rebeca Queiroz Figueiredo, Tamara Raschka, Sarah Mubeen and Daniel Domingo Fernández interpreted the results. Rebeca Queiroz Figueiredo, Tamara Raschka, Sarah Mubeen and Daniel Domingo Fernández wrote the manuscript. Martin Hofmann Apitius conceived the original idea. 
+
+
+\section{Elucidating gene expression patterns across multiple biological contexts through a large-scale investigation of transcriptomic datasets}
+
+\label{ch:contnext}
+ 
+This section presents the following publication \textbf{(see Appendix \ref{ap:contnext})}:
+
+\begin{itemize}
+
+\item[] Rebeca Queiroz Figueiredo, Sara Díaz del Ser, Tamara Raschka, Martin Hofmann Apitius, Alpha Tom Kodamullil, \textbf{Sarah Mubeen}\textsuperscript{\textdagger} and Daniel Domingo Fernández\textsuperscript{\textdagger} (2022). Elucidating gene expression patterns across multiple biological contexts through a large-scale investigation of transcriptomic datasets. \textit{BMC Bioinformatics}, 23(1).
+
+\end{itemize}
+
+\textsuperscript{\textdagger} Joint last authors
+
+\section*{Summary}
+
+Gene expression profiling enables the measurement of transcripts which are relevant to a certain condition or context, such as a cell. Patterns of genes expressed at the transcript level can be graphically organized into gene co-expression networks, where genes with correlated expression activity are connected. This sort of modelling is done under the premise that sets of genes involved in a specific biological process have similar patterns of expression.
+
+In the previous section, we described a systematic approach for the study of disease-specific experimental datasets, identifying disease mechanisms through the integration of co-expression networks and pathway knowledge. Gene expression patterns are also observable in various other contexts, such as those responsible for normal physiology. Indeed, context-specific expression is often responsible for the diversity of functions and characterizations of cell types and tissues, each with their unique specializations. For instance, previous studies \parencite{dobrin2009, pierson2015, mckenzie2018} have analyzed gene expression patters at the cell and tissue level, finding significant cell and tissue type-specific expression signatures which aid in understanding human biology. 
+
+In the publication, \textit{Elucidating gene expression patterns across multiple biological contexts through a large-scale investigation of transcriptomic datasets} we expanded the scope of our analysis to include multiple additional contexts beyond diseases, namely, cell types, tissues, and cell lines. Our work demonstrates a hybrid approach for the analysis of experimental data to discern which signatures of co-expression networks may be of particular significance to a certain cell or condition and which are constant across them.
+
+Together with the preceding publication, we have presented a large-scale investigation of gene expression patterns across multiple biological contexts. While the previous section focused on characterizing transcriptomic signatures pertaining to disease-specific co-expression networks, the work done here was concerned with multiple contexts within a normal physiological state. In order to develop an overview of context-specific patterns that give rise to distinct biological processes, we collected over 600 experimental datasets and categorized them into nearly 100 sub-categories in one of the three studied contexts: cell types, tissues and cell lines. Examples of tissue types included as sub-categories were blood, kidney, liver, brain, lung and breast. Examples of cell types included dendritic cells, neurons, hepatocytes, stem cells, peripheral blood mononuclear cells, as well as its more specific cell types including monocytes, T cells, and lymphocytes. Finally, cell lines included those from breast cancer (e.g., MCF7 and SKBR3 cells), cervical cancer (HeLa cells), lung cancer (A549 and NCI-H1299 cells) and liver cancer (Huh7 and Hep G2 cells) amongst others. 
+
+Following the same procedure as the one presented in the preceding section (\ref{ch:coxpath}), we retained only the strongest pairwise correlations between genes and constructed co-expression networks on which, analogous to section (\ref{ch:coxpath}), we conducted a series of analyses at the node, pathway and network levels.
+
+By once again leveraging a human protein-protein interaction network as a referential template, node level analyses identified nodes which were most common across contexts and their sub-categories and those which were already described in the literature. Pathway and network based analyses relied upon the PPI network to map observed correlations within the experimental data to pathway knowledge embedded in the PPI network. In the network-based analyses, we observed that the strongest correlations tended to correspond with PPIs more than expected by chance. We thus envision researchers can generate novel hypotheses of additional interactions in the PPI network from the gene-gene correlations present in the co-expression networks. In a similar manner, we also posit that the systematic overlay of pathways, context-specific PPIs and co-expression networks generated for different contexts can help to re-define pathways by incorporating transcriptomic measurements. Another major findings of this work was that we were able to highlight that co-expression networks for bulk tissue can be inadequate in characterizing underlying cellular composition, emphasizing the importance of single-cell studies. Finally, in order to explore the networks generated in this work, we have made our findings freely available in a web application, along with data and scripts. 
+
+\subsubsection{Authors' contributions}
+
+Daniel Domingo Fernández and Sarah Mubeen conceived and designed the study. Rebeca Queiroz Figueiredo and Tamara Raschka processed the transcriptomic datasets. Rebeca Queiroz Figueiredo implemented the methodology and analyzed the results supervised by Sarah Mubeen and Daniel Domingo Fernández. Sara Díaz del Ser implemented the web application. Rebeca Queiroz Figueiredo, Sarah Mubeen, and Daniel Domingo Fernández wrote the manuscript. Alpha Tom Kodamullil and Martin Hofmann Apitius reviewed the manuscript.

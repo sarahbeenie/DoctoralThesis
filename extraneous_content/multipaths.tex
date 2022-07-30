@@ -1,0 +1,23 @@
+\chapter{Label propagation algorithms for biological networks}
+%\chapter {MultiPaths: a Python framework for analyzing multi-layer biological networks using diffusion algorithms}
+
+
+\label{ch:multipaths}
+
+\section*{Summary}
+
+This chapter presents the following publication \textbf{(see Appendix \ref{ap:multipaths})}:
+
+\begin{itemize}
+
+\item[] Josep Marín-Llaó, Sarah Mubeen, Alexandre Perera-Lluna, Martin Hofmann-Apitius, Sergio Picart Armada, and Daniel Domingo-Fernández. (2021). MultiPaths: a Python framework for analyzing multi-layer biological networks using diffusion algorithms. \textit{Bioinformatics}, \textit{Bioinformatics}, 37.1: 137-139.
+
+\item[] \textbf{Authors' contributions:} Daniel Domingo Fernández conceived, designed and supervised the study. Josep Marín-Llaó implemented the methodology with assistance from Daniel Domingo-Fernández and Sarah Mubeen. Sarah Mubeen created the networks and network collections. Daniel Domingo Fernández, Josep Marín-Llaó and Sergio Picart-Armada and Sarah Mubeen performed the formal analyses. Sarah Mubeen, Daniel Domingo Fernández, Josep Marín-Llaó and Sergio Picart-Armada wrote the manuscript.
+\end{itemize}
+
+\noindent
+ The previous chapters have primarily been concerned with leveraging pathway knowledge for the interpretation of biological data. In doing so, one can considerably mitigate the challenges associated with noisy, high-dimensional data by analyzing a few hundred pathways as opposed to thousands of genes (or some other modality). While the association of genes and pathways to a phenotype is a valuable insight, this sort of analysis serves as just one component of a much broader investigation of experimental data. By representing biological data within a contextualized framework, such as a biological pathway, numerous other approaches can also be used to investigate further questions, such as which genes with as of yet unknown or obscure functions could also be associated with a given biological process. 
+ 
+ To answer such questions, one approach, network diffusion, relies upon the principle that genes within close proximity tend to share common characteristics, such as involvement in a particular biological process \parencite{cowen2017}. With this assumption, network diffusion uses biological networks, comprised of nodes (molecules) and interactions between them, as powerful yet simplistic computational models for abstracting molecular interactions and associations. When the nodes of the network are superimposed with some prior knowledge or abstract label, a diffusion algorithm can diffuse or propagate a signal to neighbouring nodes, which if unlabelled, can be inferred. Though numerous algorithms for diffusion exist, software to enable researchers to implement these algorithms are limited by the number of diffusion algorithms and biological databases they provide. In order to address these limitations, we have developed MultiPaths, a Python framework to conduct network diffusion on biological networks, as described in the following publication.  
+
+This chapter has presented MultiPaths, an ecosystem consisting of two Python packages for the analysis of biological networks. The first of the two packages, DiffuPy, implements several diffusion algorithms, which are applicable to any generic network. The second, DiffuPath, connects these algorithms to several multi-modal biological networks, thus, facilitating their utility in the scientific community. Finally, this chapter also outlined several case scenarios conducted on multiple pathway networks using multi-omics datasets. The results of these case scenarios highlight the following: i) the capacity of networks to accommodate heterogeneous data modalities, ii) larger and more comprehensive networks generated from the combination of multiple resources yield better results compared with networks derived from individual ones.

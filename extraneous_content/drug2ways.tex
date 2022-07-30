@@ -1,0 +1,22 @@
+\chapter{Pathfinding in biological networks for drug discovery}
+%\chapter {drug2ways: reasoning over causal paths in biological networks for drug discovery}
+
+\label{ch:drug2ways}
+
+\section*{Summary}
+
+This chapter presents the following publication \textbf{(see Appendix \ref{ap:drug2ways})}:
+
+\begin{itemize}
+
+\item[] Daniel Rivas Barragan, \textbf{Sarah Mubeen}, Francesc Guim Bernat, Martin Hofmann Apitius, and Daniel Domingo Fernández (2020). Drug2ways: Reasoning over causal paths in biological networks for drug discovery. \textit{PLOS Computational Biology}, 16(12): e1008464
+
+\item[] \textbf{Authors' contributions:} Daniel Domingo Fernández conceived, designed and supervised the study. Daniel Rivas Barragan and Daniel Domingo Fernández implemented the methodology. Sarah Mubeen and Daniel Domingo Fernández conducted the data curation. Sarah Mubeen and Daniel Domingo Fernández generated the knowledge graphs for validation. Daniel Domingo Fernández, Sarah Mubeen and Daniel Rivas Barragan performed the formal analyses. Sarah Mubeen, Daniel Domingo Fernández and Daniel Rivas Barragan wrote the manuscript.
+
+\end{itemize}
+
+\noindent
+In the previous chapter, we introduced a class of algorithms which simulate the flow or diffusion of information through a partially labelled network to make inferences on unlabelled nodes for numerous applications, such as protein function prediction and drug target characterization. Diffusion algorithms heavily rely on the premise of network proximity, taking into account direct as well as distant neighbours. These algorithms are particularly powerful as they consider all possible paths between pairs of nodes within a network. Given the efficacy of this approach, we explored the prospect of leveraging the ensemble of paths between nodes for the especially challenging task of drug discovery, where both the high cost and attrition rate of the traditional approach to drug development impede the approval of novel as well as existing drugs for indications. In the publication that follows, we introduce a novel algorithm, drug2ways, which traverses through all possible paths between pairs of nodes within a network for applications in drug discovery and repurposing.
+
+
+Here, we have presented drug2ways, a novel algorithm powered by multi-modal causal networks that can be used to predict drug candidates for a given indication. To demonstrate drug2ways, we ran the algorithm on two independent networks with the goal of predicting drug-disease pairs that were previously investigated in clinical trials. The drug-disease pairs prioritized by drug2ways contained a large proportion of clinically investigated pairs and significantly outperformed both baseline and permuted networks, thus, validating the algorithm. Furthermore, we presented case scenarios where the algorithm was used to propose candidates that could simultaneously be used to optimize multiple targets, as well as drug candidates that could be used together in combination therapies. Finally, drug2ways is efficiently implemented in Python and freely available to the scientific community as a software package.

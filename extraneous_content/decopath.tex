@@ -1,0 +1,30 @@
+\chapter{A consensus approach to interpret pathway enrichment}
+%\chapter[Consensus approach to interpret pathway analysis]{DecoPath: a web application for decoding pathway enrichment analysis}
+
+\label{ch:decopath}
+
+\section*{Summary}
+
+This chapter presents the following publication \textbf{(see Appendix \ref{ap:decopath})}:
+
+\begin{itemize}
+
+\item[] \textbf{Sarah Mubeen}, Vinay Srinivas Bharadhwaj, Alpha Tom Kodamullil, Yojana Gadiya, Martin Hofmann Apitius and Daniel Domingo Fernández (2021). DecoPath: A Web Application for Decoding Pathway Enrichment Analysis.  \textit{NAR Genomics and Bioinformatics}, 3(3), lqab087.
+
+\item[] \textbf{Authors' contributions:} Daniel Domingo Fernández conceived and designed the study. Sarah Mubeen implemented the web application and analyzed the data with help from Vinay Srinivas Bharadhwaj and Daniel Domingo Fernández. Yojana Gadiya, Sarah Mubeen, and Daniel Domingo Fernández curated the pathway mappings. Sarah Mubeen and Daniel Domingo Fernández wrote the manuscript.
+
+\end{itemize}
+
+\noindent
+In the preceding chapter, we described the major factors that the results of an enrichment analysis can hinge upon and formulated a benchmark study to specifically assess one such factor: the choice of pathway database. While we identified significant effects on enrichment results owing to this factor in earlier work \parencite{mubeen2019}, explanations accounting for this phenomenon were wanting. In the publication that follows, we describe a novel web application, DecoPath, that can be used to identify exactly where differences lie when using one pathway database over another by comparing the results generated across databases. DecoPath allows researchers to conduct enrichment analysis using multiple enrichment methods and individual pathway databases as well as a merged representation. Built-in features, such as interactive visualizations, assist users in the interpretation and reproducibility of their results. 
+
+DecoPath is an intuitive and extensible web application which allows users to easily identify differences in the results of enrichment analysis arising from the use of different resources. Using the DecoPath ecosystem, researchers can run an enrichment analysis and obtain results or alternatively, upload the results of an analysis. These results can be explored through custom visualizations from large-scale down to fine granular levels. At the most shallow level, by exploiting a pathway hierarchy we generated, researchers can visualize and explore nested pathways across multiple databases that either are or are not interesting to the phenotype under investigation. At an intermediate level, individual pathways which are equivalent across database can additionally be assessed to reveal the degree of consensus and/or discrepancies across databases. Finally, at the deepest level, the contribution of individual genes within a given pathway can be studied to further facilitate the interpretation of results.
+
+% todo incorporate old pathwayforte chapter
+As outlined in chapter \ref{ch:review}, there are several factors that influence the results of pathway enrichment analysis, including the enrichment method and database choice. While over a dozen benchmark studies have been conducted to explore the influence of enrichment methods, the choice of pathway database has received far less attention. Choosing one database over another has tremendous influence on the results of enrichment analyses, given their minimum overlap in terms of equivalent pathways \parencite{domingo2019}. In this chapter, we evaluate the effect of database choice on several pathway enrichment methods and statistical modeling techniques by comparing the results obtained with three of the major pathway databases as well as a merged representation of the three. 
+
+Ultimately, this benchmark study represents the first major attempt to shed light on the importance of database selection on enrichment analysis results and take a step towards more meaningful results.
+
+While several major comparative studies on various aspects of enrichment analysis have been conducted, an oft-neglected yet crucial factor has remained the choice of pathway database. Until this publication, a comprehensive benchmark with objective evaluations on the impact of this factor was lacking, although some database selection guidelines could be found. In this work, we first highlighted the rationales researchers often use to select a particular database, noting that these are often subjective, such as database popularity or previous experience. In order to demonstrate the consequences of these choices, we designed a series of experiments employing several datasets and multiple enrichment methods to empirically test the use of one database over another on results. 
+
+We observed that different databases yield disparate results on enrichment analysis and statistical modeling, even when the same pathway is represented in different databases, albeit with slightly altered gene sets and/or pathway topologies. We have also found that integrative resources which combine databases or relying upon multiple databases as opposed to a single one can be key to finding both biologically meaningful and consistent results. 

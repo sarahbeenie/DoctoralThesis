@@ -1,0 +1,48 @@
+% Sarah Mubeen PhD Thesis
+% University of Bonn PhD in Computational Life Sciences
+
+%\documentclass[a4paper, openright, 12pt, twoside]{report}
+\documentclass[a4paper, 12pt]{report}
+
+\include{others/preamble}
+
+\begin{document}
+
+    \titleformat{\chapter}[display] %chapter headings
+        {\bfseries\Huge}
+        {\thechapter} % label
+        {0.5ex} % sep
+        {}
+
+    \include{others/prologue}
+    
+    \pagenumbering{arabic} % restart page numbering with arabic numbers
+    \setlength{\parskip}{1em} % set space between paragraphs
+    \renewcommand{\baselinestretch}{1.2} % set line spacing
+
+    \titleformat{\chapter}[display]	%chapter headings
+      {\bfseries\Large}
+      {\filright\textls{\MakeUppercase{\chaptertitlename}} \Huge\thechapter}
+      {1ex}
+      {\raggedright\Large}
+
+    \input{content/introduction}
+
+    % One or more publication per chapter according to regulations
+    % see: https://www.mnf.uni-bonn.de/promotion/downloads/promotionsordnung-der-mathematisch-naturwissenschaftlichen-fakultaet-version-2011
+    
+    \input{content/pathway_analysis}
+    \input{content/expression_patterns}
+    \input{content/network_methods}
+    \input{content/conclusion}
+    
+    \printbibliography[
+        heading=bibintoc,
+        title={References}
+        ]
+        
+    \appendix
+    \addtocontents{toc}{\protect\setcounter{tocdepth}{0}}
+    \include{others/appendix}
+
+\end{document}

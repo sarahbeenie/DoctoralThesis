@@ -1,0 +1,96 @@
+\chapter{Interpreting the results of pathway enrichment analysis}
+
+\label{ch:pathways}
+
+One of the primary avenues researchers have for the interpretation of high dimensional biological data is pathway enrichment analysis to investigate the involvement of particular sets of genes in a given phenotype. In this chapter, we introduce a series of publications which reveal common challenges associated with interpreting the results of these analyses and establish techniques to mitigate these challenges.
+
+\section{On the influence of several factors on pathway enrichment analysis}
+
+\label{ch:review}
+
+This section presents the following publication \textbf{(see Appendix \ref{ap:review})}:
+
+\begin{itemize}
+
+\item[] \textbf{Sarah Mubeen}, Alpha Tom Kodamullil, Martin Hofmann Apitius and Daniel Domingo Fernández (2022). On the influence of several factors on pathway enrichment analysis. \textit{Briefings in Bioinformatics}, 23:3.
+
+\end{itemize}
+
+\subsection*{Summary}
+
+Among the techniques available for the interpretation of biological data, pathway enrichment analysis has emerged as one of the more prominent. The popularity of this type of analysis can be attributed to a more natural approach in which biological data is interpreted within a system-level context, guided by literature- and/or expert- based knowledge. Given its widespread popularity, several hundreds of enrichment methods and pathway databases have been developed, yet paradoxically, gold standards have noticeably been lacking. 
+
+Nonetheless, the lack of universal, gold standards is not surprising given the variability conferred by the variety of possible configurations, modular aspects and interchangeable factors possible when conducting a pathway analysis. For instance, an experimental dataset can possess different characteristics (e.g., varying number of samples or varying degrees of differential expression among entities from different experimental groups), choosing one pathway database or gene set collection over another can result in differing pathway definitions and gene set sizes, and a wide range of enrichment methods (e.g., topology versus non-topology -based) and configurations (e.g., different gene (i.e., local) and gene set-level (i.e., global) statistics) are possible. Consequently, these methods and databases have been investigated in a number of benchmark studies alongside of various other factors to study the impact they produce on the results of enrichment analysis. 
+
+The publication, \textit{On the influence of several factors on pathway enrichment analysis}  provides a comprehensive review of the literature on key factors of pathway analysis and summarizes the results of studies which have evaluated the influence of these factors. Solutions to mitigate the effect of these factors and identify possible future benchmarks are also made.
+
+The study finds that in many instances, the results of enrichment analysis can be ascribed to various factors beyond the intended goal of investigation. We have reviewed numerous studies which have demonstrated how alternative experimental designs of such an analysis can lead to different results. In doing so, we have provided a comprehensive overview of which aspects a researcher should be cognizant of in conducting an enrichment analysis and how these can impact results. We have especially focused on a dozen studies, representing all major comparative studies performed to date which have collectively benchmarked nearly fifty enrichment methods and/or their variants. Summarizing the findings of these studies, we have found severe inconsistencies across the performance of methods. In some extreme cases, different methods can go so far as to yield either all gene sets or no gene sets as significantly enriched on the same dataset and database, highlighting the importance of the careful consideration of these factors. Nonetheless, despite the inconsistencies noted, we were able to observe trends across studies with respect to the performance of methods on several metrics, such as specificity, sensitivity and prioritization. This revealed some methods do rank higher than others on a particular metric, although none was found to outperform all others across all metrics. 
+
+We have also critically reviewed several other major factors that can influence pathway enrichment analysis, including variations in modular aspects of a typical enrichment analysis, gene set size, and gene set/pathway database choice, once again finding these to be highly consequential to the overall results. The choice of reference pathway database is especially significant, given that the results of an enrichment analysis are determined by the pathways or gene sets included in the collection. Nonetheless, the choice itself can at times be arbitrary, selected due to popularity, ease of usage and prior experience. However, the influence of this factor can be mitigated by integrating multiple resources into the analysis instead of relying upon a single one for more comprehensive and less variable results, as we demonstrate in the section that follows. Finally, we have provided possible solutions to mitigate the outlined factors, proposed possible future benchmarks, and made recommendations for researchers to make well-informed decisions when conducting a pathway analysis. 
+
+\subsubsection{Authors' contributions}
+
+Sarah Mubeen and Daniel Domingo Fernández wrote the manuscript. Alpha Tom Kodamullil and Martin Hofmann Apitius reviewed the manuscript.
+
+\newpage
+
+
+\section{The impact of pathway database choice on statistical enrichment analysis and predictive modeling.}
+
+\label{ch:pathwayforte}
+
+This section presents the following publication \textbf{(see Appendix \ref{ap:pathwayforte})}:
+
+\begin{itemize}
+
+\item[] \textbf{Sarah Mubeen}, Charles Tapley Hoyt, André Gemünd, Martin Hofmann Apitius, Holger Fröhlich, and Daniel Domingo Fernández. (2019). The Impact of Pathway Database Choice on Statistical Enrichment Analysis and Predictive Modeling. \textit{Frontiers in Genetics}, 10:1203.
+
+\end{itemize}
+
+\subsection*{Summary}
+
+As outlined in the previous section (\ref{ch:review}), there are several factors that influence the results of pathway enrichment analysis, including the enrichment method and database choice. While over a dozen benchmark studies have been conducted to explore the influence of enrichment methods, the choice of pathway database has received far less attention. In the publication, \textit{The Impact of Pathway Database Choice on Statistical Enrichment Analysis and Predictive Modeling}, we evaluate the effect of database choice on several pathway enrichment methods and statistical modeling techniques by comparing the results obtained by three major pathway databases, as well as a merged representation of the three. 
+
+In this work, we first highlighted the rationales researchers often use to select a particular database for the analysis and interpretation of \textit{omics} data, noting that these are often subjective, such as database popularity or previous experience. In some cases, tools may cater to a specific pathway format, and implicitly restrict an analysis to a particular database. Consequently, some databases are vastly over-represented in the literature than others, though  hundreds of pathway resources are available \parencite{bader2006}. Here, we focused on three major pathway databases (i.e., KEGG \parencite{kanehisa2000}, Reactome \parencite{jassal2020} and WikiPathways \parencite{martens2021}), given that all three are highly-cited, open-sourced and well-established. We also retrieved content from these primary databases from the integrative resource, MSigDB \parencite{liberzon2015}, to observe any effects that could be attributed to outdated pathways stored in this meta-database. Furthermore, we generated MPath, an integrative resource containing the set union of KEGG, Reactome and WikiPathways, in which genesets and interactions of any pathway found in all three databases were merged. Mappings between pathways from the databases were established and retrieved from ComPath \parencite{domingo2018}. We hypothesized that if a pathway from one database is significantly enriched in an analysis, its equivalent representation in another database should presumably be significantly enriched as well. Thus, we aimed to systematically compare the results yielded by one resource over another.
+
+We designed a series of experiments employing RNA-seq gene expression data from The Cancer Genome Atlas (TCGA) \parencite{weinstein2013} for breast, kidney, liver, prostate and ovarian cancer. We subsequently designed a benchmarking schema using multiple enrichment methods to empirically test the use of one database over another on results. We chose methods that represented each of three generations of pathway enrichment methods, including (i) Fisher's exact test \parencite{fisher1992} for over-representation analysis (ORA), (ii) GSEA \parencite{subramanian2005} as a functional class scoring (FCS) method and, (iii) SPIA \parencite{tarca2009} as a pathway topology (PT)-based method, as well as ssGSEA \parencite{barbie2009}, a single-sample FCS enrichment method. Finally, we benchmarked the performance of different pathway resources with regard to multiple machine learning tasks, specifically, the prediction of tumor vs. normal samples, tumor subtypes and overall survival.
+
+We found that choosing one database over another has tremendous influence on the results of enrichment analysis, given their minimum overlap in terms of equivalent pathways \parencite{domingo2019}. We observed that different databases can yield disparate results on enrichment analysis and statistical modeling, even when the same pathway is represented in different databases, albeit with slightly altered gene sets and/or pathway topologies.  For instance, we found that a pathway in one database may be significantly enriched for a particular dataset, but its equivalent representation in another database may not be. Similarly, a pathway could be over-expressed in results for an analysis conducted on one database, and under-expressed in results for another. Finally, we found that integrative resources which combine databases or relying upon multiple databases as opposed to a single one can be key to finding both biologically meaningful and consistent results. Ultimately, this benchmark study represents the first major attempt to shed light on the importance of database selection on pathway analysis and take a step towards more meaningful results.
+
+\subsubsection{Authors' contributions}
+
+Sarah Mubeen and Daniel Domingo Fernández conducted the main analysis and implemented the Python package. Holger Fröhlich supervised methodological aspects of the analysis. Charles Tapley Hoyt and André Gemünd assisted technically in the analysis of the results. Sarah Mubeen, Holger Fröhlich, Charles Tapley Hoyt, Martin Hofmann Apitius, and Daniel Domingo Fernández wrote the paper. Daniel Domingo Fernández conceived and designed the study.
+
+\newpage
+
+\section{DecoPath: a web application for decoding pathway enrichment analysis}
+
+\label{ch:decopath}
+
+This section presents the following publication \textbf{(see Appendix \ref{ap:decopath})}:
+
+\begin{itemize}
+
+\item[] \textbf{Sarah Mubeen}, Vinay Srinivas Bharadhwaj, Alpha Tom Kodamullil, Yojana Gadiya, Martin Hofmann Apitius and Daniel Domingo Fernández (2021). DecoPath: A Web Application for Decoding Pathway Enrichment Analysis. \textit{NAR Genomics and Bioinformatics}, 3(3): lqab087.
+
+\end{itemize}
+
+\subsection*{Summary}
+
+In the publication described in Section \ref{ch:review}, we reviewed the major factors that the results of an enrichment analysis can hinge upon. We found that while several major comparative studies on various aspects of enrichment analysis have been conducted, such as the enrichment method, an oft-neglected yet crucial factor has remained the choice of pathway database. Then, in the work described in the preceding section (\ref{ch:pathwayforte}), we identified significant effects on enrichment results owing to this factor. Until this publication, a comprehensive benchmark with objective evaluations on the impact of this factor was lacking, although some database selection guidelines could be found. 
+
+The findings from our previous benchmark study prompted us to develop a platform which allows users to easily identify differences in the results of enrichment analysis arising from the use of different resources. In the publication, \textit{DecoPath: A Web Application for Decoding Pathway Enrichment Analysis}, we describe a novel web application, DecoPath, that can be used to identify exactly where differences lie when using one pathway database over another by comparing the results generated across databases. DecoPath allows researchers to conduct enrichment analysis using multiple enrichment methods and individual pathway databases as well as a merged representation. Built-in features, such as interactive visualizations, assist users in interpreting and gauging the reproducibility of their results. 
+
+Using the DecoPath ecosystem, researchers can run an enrichment analysis using the over representation analysis (ORA) or gene set enrichment analysis (GSEA) (\parencite{subramanian2005}) methods. Alternatively, researchers can upload the results of an analysis that have been performed on similar enrichment methods. DecoPath includes four major pathway databases (KEGG \parencite{kanehisa2000}, PathBank \parencite{wishart2020}, Reactome \parencite{jassal2020} and WikiPathways \parencite{martens2021}) for pathway gene sets for which pathway mappings have already been established such that any equivalent pathway across the databases is noted as such. Once users have run an analysis to obtain results or alternatively, uploaded the results of an analysis, these results can be explored through custom visualizations from large-scale down to fine granular levels. 
+
+For a global overview of pathway analysis results, we created a pathway hierarchy in which pathways are organized into major categories (e.g., metabolism, immune system, signalling and disease pathways). The hierarchy itself is a directed acyclic graph with a maximum depth of four and contains pathways with either \textit{is part of} or \textit{equivalent to} relations types. In total, the hierarchy comprises of 644 pathways from the KEGG \parencite{kanehisa2000}, PathBank \parencite{wishart2020}, Reactome \parencite{jassal2020} and WikiPathways \parencite{martens2021} databases. The pathway hierarchy can be viewed in the interactive hierarchical view visualization of equivalent pathways across databases. Here, researchers can visualize and explore nested pathways across multiple databases that either are or are not interesting to the phenotype under investigation. 
+
+At an intermediate level, individual pathways which are equivalent across database can be assessed to reveal the degree of consensus and/or discrepancies of the results of enrichment analysis across databases at the pathway level in the consensus page visualization. This visualization displays both the normalized enrichment score and whether the pathway is significantly enriched according to a user-defined significance cut-off for GSEA and exclusively the latter for ORA. In some cases, we found that an equivalent pathway across databases was significant in one database but not in another. Users can explore why that may be the case by conducting a gene-level analysis in parallel. At this deepest level of analysis, the contribution of individual genes within a given pathway can be studied to further facilitate the interpretation of results. This interactive visualization illustrates the overlap of genes for equivalent pathways to identify which genes are responsible for any contradictions observed in the results of enrichment analysis.
+
+In conclusion, choosing one database over another can impact the results of enrichment analysis. By comparing the results obtained with multiple pathway databases, researchers acquire a broader, more comprehensive overview of the phenotype under study than if one were to rely upon a single database. By investigating differences at the level of individual genes, one can also observe how alternative pathway definitions can determine whether or not a pathway is considered significantly enriched. Furthermore, such a gene-level analysis can also help to identify heavily annotated genes that contribute to non-specific enrichment results. One possible solution to the problem of non-specific results lies in drawing pathway boundaries such that these boundaries reduce redundancy across gene sets. In the following chapter, we introduce other modes of biological networks derived from data that can help guide functional network definitions instead of relying upon arbitrary pathway declarations. 
+
+
+\subsubsection{Authors' contributions}
+
+Sarah Mubeen implemented the web application and analyzed the data with help from Vinay Srinivas Bharadhwaj and Daniel Domingo Fernández. Yojana Gadiya, Sarah Mubeen, and Daniel Domingo Fernández curated the pathway mappings. Sarah Mubeen and Daniel Domingo Fernández wrote the manuscript. Daniel Domingo Fernández conceived and designed the study. 
+

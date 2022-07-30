@@ -1,0 +1,24 @@
+\usepackage[english]{babel}
+\usepackage[autostyle, english = american]{csquotes}
+\usepackage{pdfpages}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+\usepackage{tabularx}	%table widths
+\usepackage{amssymb}	% math symbols
+\usepackage[tracking=smallcaps]{microtype}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+\usepackage[section]{placeins}
+\usepackage[toc,page]{appendix}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{enumerate}
+%\usepackage[titles]{tocloft}	
+%\renewcommand\cftchapfont{\normalsize}
+%\renewcommand\cftchappagefont{\normalsize}
+\MakeOuterQuote{"}
+ \counterwithout{figure}{chapter}  %continuous figure numbering
+\counterwithout{table}{chapter}
+
+ % bibliography
+\usepackage[backend=biber,style=nature,]{biblatex}
+\addbibresource{references.bib}
