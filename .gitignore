@@ -1,0 +1,15 @@
+.DS_Store
+
+*.aux
+*.toc
+*.blg
+*.dvi
+*.lof
+*.lot
+*.bbl
+*.bcf
+*.fdb_latexmk
+*.log
+*.out
+*.fls
+*.xml
